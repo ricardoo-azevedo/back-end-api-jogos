@@ -1,4 +1,4 @@
-package com.backend.apijogos.dtos;
+package com.backend.apiJogos.dtos;
 
 import java.util.UUID;
 

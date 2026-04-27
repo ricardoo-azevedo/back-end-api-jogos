@@ -1,12 +1,12 @@
-package com.backend.apijogos.controllers;
+package com.backend.apiJogos.controllers;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.backend.apijogos.dtos.UserDto;
-import com.backend.apijogos.services.interfaces.UserService;
+import com.backend.apiJogos.dtos.UserDto;
+import com.backend.apiJogos.services.interfaces.UserService;
 
 @RestController
 @RequestMapping("/users")

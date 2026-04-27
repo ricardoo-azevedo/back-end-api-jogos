@@ -1,4 +1,4 @@
-package com.backend.apijogos.models;
+package com.backend.apiJogos.models;
 
 import java.util.UUID;
 

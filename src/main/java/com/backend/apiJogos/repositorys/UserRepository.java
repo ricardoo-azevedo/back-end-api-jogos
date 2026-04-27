@@ -1,10 +1,10 @@
-package com.backend.apijogos.repositories;
+package com.backend.apiJogos.repositorys;
 
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.backend.apijogos.models.User;
+import com.backend.apiJogos.models.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {

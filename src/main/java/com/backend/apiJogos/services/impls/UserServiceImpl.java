@@ -1,4 +1,4 @@
-package com.backend.apijogos.services.impls;
+package com.backend.apiJogos.services.impls;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,10 +6,10 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.backend.apijogos.dtos.UserDto;
-import com.backend.apijogos.models.User;
-import com.backend.apijogos.repositories.UserRepository;
-import com.backend.apijogos.services.interfaces.UserService;
+import com.backend.apiJogos.dtos.UserDto;
+import com.backend.apiJogos.models.User;
+import com.backend.apiJogos.repositorys.UserRepository;
+import com.backend.apiJogos.services.interfaces.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
