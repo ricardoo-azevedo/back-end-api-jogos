@@ -6,6 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,12 +25,13 @@ import lombok.ToString;
 
 public class User {
     @Id
-    private UUID id;
-    @Column(nullable = false)
-    private String nome;
-    
-    public User(String nome){
-        this.id = UUID.randomUUID();
-        this.nome = nome;
-    }
+@GeneratedValue(strategy = GenerationType.UUID)
+private UUID id;
+
+@Column(nullable = false)
+private String nome;
+
+public User(String nome){
+    this.nome = nome;
+}
 }

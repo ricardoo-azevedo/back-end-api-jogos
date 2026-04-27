@@ -18,7 +18,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDto {
-    @JsonProperty(acess = JsonProperty.Acess.READ_ONLY)
     private UUID id;
 
     @NotNull (message = "nome não pode ser nulo")
