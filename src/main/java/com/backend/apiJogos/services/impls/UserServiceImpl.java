@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.backend.apiJogos.dtos.UserDto;
+import com.backend.apiJogos.exceptionHandler.exceptions.UserJaCadastradoException;
 import com.backend.apiJogos.models.User;
 import com.backend.apiJogos.repositorys.UserRepository;
 import com.backend.apiJogos.services.interfaces.UserService;
@@ -20,6 +21,11 @@ public class UserServiceImpl implements UserService{
  }
   @Override
   public UserDto criarUsuario(UserDto userDto){
+
+    if(userRepository.existsByNome(userDto.getNome())){
+      throw new UserJaCadastradoException();
+    }
+
     User user = new User(userDto.getNome());
     userRepository.save(user);
 
