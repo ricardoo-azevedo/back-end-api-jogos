@@ -8,4 +8,7 @@ import com.backend.apiJogos.models.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {
+
+  boolean existsByNome(String nome);
+
 }
