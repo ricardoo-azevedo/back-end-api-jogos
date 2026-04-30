@@ -31,7 +31,10 @@ private UUID id;
 @Column(nullable = false)
 private String nome;
 
-public Game(String nome){
+private String genero;
+
+public Game(String nome, String genero){
     this.nome = nome;
+    this.genero = genero;
 }
 }

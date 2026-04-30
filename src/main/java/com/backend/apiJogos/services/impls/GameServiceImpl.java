@@ -20,17 +20,17 @@ public class GameServiceImpl implements GameService {
 
 @Override
 public GameDto criar (GameDto gameDto){
-    Game game = new Game(gameDto.getNome());
+    Game game = new Game(gameDto.getNome(), gameDto.getGenero());
     
     Game salvo = gameRepository.save(game);
 
-    return new GameDto(salvo.getId(), salvo.getNome());
+    return new GameDto(salvo.getId(), salvo.getNome(), salvo.getGenero());
 }
 @Override
 public List<GameDto> listar(){
  return gameRepository.findAll()
    .stream()
-   .map(game -> new GameDto(game.getId(), game.getNome()))
+   .map(game -> new GameDto(game.getId(), game.getNome(), game.getGenero()))
    .collect(Collectors.toList());
 }
 @Override
@@ -38,7 +38,7 @@ public GameDto buscarPorId(UUID id){
     Game game = gameRepository.findById(id)
            .orElseThrow(() -> new RuntimeException("Game não encontrado"));
 
-    return new GameDto(game.getId(), game.getNome());
+    return new GameDto(game.getId(), game.getNome(), game.getGenero());
 }
 @Override
 public void deletar(UUID id){
@@ -50,16 +50,18 @@ public GameDto editar(UUID id, GameDto gameDto){
            .orElseThrow(() -> new RuntimeException("Game não encontrado"));
         
         game.setNome(gameDto.getNome());
+        game.setGenero(gameDto.getGenero());
+
 
         Game atualizado = gameRepository.save(game);
 
-    return new GameDto(atualizado.getId(),atualizado.getNome());
+    return new GameDto(atualizado.getId(),atualizado.getNome(), atualizado.getGenero());
 }
 @Override
 public List<GameDto> buscarPorNome(String nome){
     return gameRepository.findByNomeContainingIgnoreCase(nome)
          .stream ()
-         .map(game -> new GameDto(game.getId(), game.getNome()))
+         .map(game -> new GameDto(game.getId(), game.getNome(),game.getGenero()))
          .collect(Collectors.toList());
 }
 }

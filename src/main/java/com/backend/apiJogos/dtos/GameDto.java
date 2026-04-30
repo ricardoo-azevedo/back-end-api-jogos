@@ -22,5 +22,7 @@ public class GameDto {
 
      @NotNull(message = "O nome não pode ser nulo")
      private String nome;
+    
+     private String genero;
 
 }

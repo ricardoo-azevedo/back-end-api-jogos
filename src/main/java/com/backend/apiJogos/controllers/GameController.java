@@ -22,7 +22,7 @@ public class GameController {
         this.gameService = gameService;
     }
     @PostMapping
-    public GameDto criar(@RequestBody GameDto gameDto){
+    public GameDto criar(@RequestBody @Valid GameDto gameDto){
         return gameService.criar(gameDto);
     }
     @GetMapping
