@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.backend.apiJogos.dtos.GameDto;
 import com.backend.apiJogos.models.Game;
-import com.backend.apiJogos.repositories.GameRepository;
+import com.backend.apiJogos.repositorys.GameRepository;
 import com.backend.apiJogos.services.interfaces.GameService;
 
 import lombok.RequiredArgsConstructor;

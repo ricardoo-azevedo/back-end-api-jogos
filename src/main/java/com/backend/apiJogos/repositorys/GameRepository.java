@@ -1,4 +1,4 @@
-package com.backend.apiJogos.repositories;
+package com.backend.apiJogos.repositorys;
 
 import java.util.UUID;
 import java.util.List;
