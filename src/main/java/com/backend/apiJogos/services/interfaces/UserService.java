@@ -7,7 +7,9 @@ import com.backend.apiJogos.dtos.UserDto;
 
 public interface UserService {
     UserDto criarUsuario(UserDto userDto);
+    UserDto editarPorId(UserDto userDto, UUID id);
     List<UserDto> listarUsuarios();
     UserDto buscarPorId (UUID id);
+    List<UserDto>buscarPorNome(String nome);
     void deletarUsuario (UUID id);
 }

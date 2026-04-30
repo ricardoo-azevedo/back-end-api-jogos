@@ -1,5 +1,6 @@
 package com.backend.apiJogos.repositorys;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,5 +11,7 @@ import com.backend.apiJogos.models.User;
 public interface UserRepository extends JpaRepository<User, UUID> {
 
   boolean existsByNome(String nome);
+
+  List<User> findByNomeContaining(String nome);
 
 }

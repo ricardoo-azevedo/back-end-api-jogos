@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService{
  public UserServiceImpl(UserRepository userRepository){
     this.userRepository = userRepository;
  }
+
   @Override
   public UserDto criarUsuario(UserDto userDto){
 
@@ -31,6 +32,7 @@ public class UserServiceImpl implements UserService{
 
     return new UserDto(user.getId(), user.getNome());
   }
+
   @Override
   public List<UserDto> listarUsuarios(){
     return userRepository.findAll()
@@ -38,6 +40,7 @@ public class UserServiceImpl implements UserService{
        .map(user -> new UserDto(user.getId(), user.getNome()))
        .collect(Collectors.toList());
 }
+
  @Override
  public UserDto buscarPorId(UUID id){
     User user = userRepository.findById(id)
@@ -45,8 +48,32 @@ public class UserServiceImpl implements UserService{
     
      return new UserDto(user.getId(), user.getNome());
  } 
+
  @Override
  public void deletarUsuario(UUID id){
      userRepository.deleteById(id);
  }
+
+@Override
+public UserDto editarPorId(UserDto userDto, UUID id) {
+    User user = userRepository.findById(id).orElseThrow(()-> new RuntimeException("Membro não encontrado!"));
+
+    if(userRepository.existsByNome(userDto.getNome())){
+      throw new UserJaCadastradoException();
+    }
+
+    user.setNome(userDto.getNome());
+    userRepository.save(user);
+
+    return new UserDto(user.getId(), user.getNome());
+}
+  
+@Override
+public List<UserDto> buscarPorNome(String nome) {
+   return userRepository.findByNomeContaining(nome)
+    .stream()
+    .map(
+      user -> new UserDto(user.getId(),user.getNome())).collect(Collectors.toList()
+    );
+}
 }
